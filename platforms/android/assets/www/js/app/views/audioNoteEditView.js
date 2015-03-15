@@ -39,6 +39,12 @@
          white:false,
          onevar:false 
  */
+ 
+ 
+ 
+ 
+ 
+ 
 /*global define*/
 define( [ "yasmf", "app/models/noteStorageSingleton",
   "text!html/audioNoteEditView.html!strip", "app/views/textNoteEditView", "hammer"

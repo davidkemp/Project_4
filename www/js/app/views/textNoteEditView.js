@@ -23,22 +23,25 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 /*jshint
-         asi:true,
-         bitwise:true,
-         browser:true,
-         curly:true,
-         eqeqeq:false,
-         forin:true,
-         noarg:true,
-         noempty:true,
-         plusplus:false,
-         smarttabs:true,
-         sub:true,
-         trailing:false,
-         undef:true,
-         white:false,
-         onevar:false 
+         asi:true,		bitwise:true,		browser:true,	curly:true,			eqeqeq:false,
+         forin:true,	noarg:true,			noempty:true,	plusplus:false,		smarttabs:true,
+         sub:true,		trailing:false,		undef:true,		white:false,		onevar:false 
  */
+ 
+  /*		PROJECT  4  CHANGES:     ( Lines  210 - 215 )				:-{)	
+
+		EDIT 03/11/2015 - Caleb, Chris, David, Eileen 
+			COMMENT LIST 
+   
+ 	   -Added status pointer (Line: 63 ) 
+ 	   -Getting the status value (Line: 74 ) 
+ 	   -Added function to record status change (Line: 83 ) 
+ 	   -Added Variable/Identifier, gets status and sets it to %NEW_STATS% (Line: 116 ) 
+ 	   -Selecting div tag with CSS (Line: 135 - 140 ) 
+ 	   -Setting up click listeners (Line: 150 - 155 ) 
+  */
+ 
+ 
 /*global define*/
 define( [ "yasmf", "app/models/noteStorageSingleton",
   "text!html/textNoteEditView.html!strip", "hammer"
@@ -57,7 +60,7 @@ define( [ "yasmf", "app/models/noteStorageSingleton",
     self._contentsEditor = null;
     self._backButton = null;
     self._deleteButton = null;
-	/* Added status pointer */
+	/* Added status pointer  *************************   */
 	self._currentStatus = null;
     // the note we're editing
     self._note = null;
@@ -68,14 +71,14 @@ define( [ "yasmf", "app/models/noteStorageSingleton",
     self.saveNote = function() {
       self._note.name = self._nameEditor.innerText;
 	  
-	  /*  */
+	  /*    *******************************************************    */
 	  self._note.status = self._currentStatus.value;
 	  
 	  self._note.textContents = self._contentsEditor.value;
       noteStorageSingleton.saveNote( self._note );
 	}
 	/*
-	** Added function to record status change
+	** Added function to record status change     ***************************
 	*/
 	self.changeStatus = function () {
 	self._statusChange = y.T( "test" )
@@ -108,7 +111,9 @@ define( [ "yasmf", "app/models/noteStorageSingleton",
         "NOTE_CONTENTS": self._note.textContents,
         "BACK": _y.T( "BACK" ),
         "DELETE_NOTE": _y.T( "app.nev.DELETE_NOTE" ),
-		"NEW_STATUS": self._note.status
+	    	/*  **************   Added Variable/Identifier, gets status and 
+							sets it to %NEW_STATS%    *********************    */
+		"NEW_STATUS": self._note.status   
       } );
     };
     /**
@@ -124,6 +129,13 @@ define( [ "yasmf", "app/models/noteStorageSingleton",
         ".ui-navigation-bar .ui-bar-button-group.ui-align-left .ui-back-button" );
 		/* Trying stuff */
 		
+	
+
+	
+		/* Selecting div tag with CSS...     Caleb Note: 
+		I would not do this ever again. It's messy and if you decide to change your CSS class 
+		at all then it will break the code. Too easy to break and would prefer to grab something 
+		with an ID... We kept it as a class to remain consistent with the rest of the code */ 
 	  self._currentStatus = self.element.querySelector(
         ".ui-navigation-bar .ui-bar-button-group.ui-align-right .ui-new-status" );
 		
@@ -135,8 +147,9 @@ define( [ "yasmf", "app/models/noteStorageSingleton",
       Hammer( self._backButton ).on( "tap", self.goBack );
       Hammer( self._deleteButton ).on( "tap", self.deleteNote );
 	  
-	  /* Trying other stuff */
-	  
+	  /* Trying other stuff   ********************************     */
+	  	  /* Setting up click listeners */
+		  
 	  _y.UI.event.addListener( self._currentStatus, "click", self.changeStatus)
       _y.UI.event.addListener( self._backButton, "click", self.goBack )
       _y.UI.event.addListener( self._deleteButton, "click", self.deleteNote );

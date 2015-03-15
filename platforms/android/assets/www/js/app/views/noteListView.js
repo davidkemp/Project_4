@@ -23,22 +23,16 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 /*jshint
-         asi:true,
-         bitwise:true,
-         browser:true,
-         curly:true,
-         eqeqeq:false,
-         forin:true,
-         noarg:true,
-         noempty:true,
-         plusplus:false,
-         smarttabs:true,
-         sub:true,
-         trailing:false,
-         undef:true,
-         white:false,
-         onevar:false 
+         asi:true,		bitwise:true,		browser:true,	curly:true,			eqeqeq:false,
+         forin:true,	noarg:true,			noempty:true,	plusplus:false,		smarttabs:true,
+         sub:true,		trailing:false,		undef:true,		white:false,		onevar:false 
  */
+ 
+  /*		PROJECT  4  CHANGES:     ( Lines  210 - 215 )				:-{)
+     EDIT 03/11/2015 - COMMENT LIST / Caleb, Chris, David, Eileen 
+				-Added status variable/identifier  
+  */
+
 /*global define*/
 define( [ "yasmf", "app/models/noteStorageSingleton", "text!html/noteListView.html!strip",
   "text!html/noteListView_android.html!strip", "text!html/noteListItem.html!strip",
@@ -176,8 +170,7 @@ define( [ "yasmf", "app/models/noteStorageSingleton", "text!html/noteListView.ht
       Hammer( self._newImageNoteButton ).on( "tap", self.createNewImageNote );
       _y.UI.backButton.addListenerForNotification( "backButtonPressed", self.quitApp );
     };
-    /**
-     * private method that handles hiding any visible actions in a list
+    /**      * private method that handles hiding any visible actions in a list
      */
     self._hideActions = function( e ) {
       e.gesture.preventDefault();
@@ -191,8 +184,7 @@ define( [ "yasmf", "app/models/noteStorageSingleton", "text!html/noteListView.ht
         Hammer( el ).off( "touch", self._hideActions );
       }
     };
-    /**
-     * Render the note list; called whenever the storage collection changes
+    /**       * Render the note list; called whenever the storage collection changes
      */
     self.renderList = function() {
       var notes = noteStorageSingleton.collection;
@@ -214,7 +206,14 @@ define( [ "yasmf", "app/models/noteStorageSingleton", "text!html/noteListView.ht
               "TRASH": _y.T( "TRASH" ),
               "NAME": notes[ note ].name,
               "REPRESENTATION": notes[ note ].representation,
-              "MODIFIED": _y.D( notes[ note ].modifiedDate, "D" ),
+			  
+//   ************************************************************************************************			  
+
+  //   Modifed default long date "D" to short date "d"   for Space sake in status    :-{)
+              "MODIFIED": _y.D( notes[ note ].modifiedDate, "d" ),
+			  
+//   ************************************************************************************************			  
+			  
               "INFO": "" + _y.N( notes[ note ].formattedUnitValue ),
 			  /* Added status property */
 			  "NEW_STATUS": notes[ note ]._status

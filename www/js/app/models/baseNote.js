@@ -23,23 +23,18 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 /*jshint
-         asi:true,
-         bitwise:true,
-         browser:true,
-         curly:true,
-         eqeqeq:false,
-         forin:true,
-         noarg:true,
-         noempty:true,
-         plusplus:false,
-         smarttabs:true,
-         sub:true,
-         trailing:false,
-         undef:true,
-         white:false,
-         onevar:false 
+         asi:true,		bitwise:true,		browser:true,	curly:true,			eqeqeq:false,
+         forin:true,	noarg:true,			noempty:true,	plusplus:false,		smarttabs:true,
+         sub:true,		trailing:false,		undef:true,		white:false,		onevar:false 
  */
-/*global define*/
+ 
+  /*		PROJECT  4  CHANGES:     ( Lines  125 - 135 )				:-{)	
+						COMMENT SUMMARY 	EDIT 03/11/2015 - Caleb, Chris, David, Eileen 
+					-Added Status Notification 		(line 56) 
+					-Added status get/set functions (line 125-150) 
+
+  */
+ /*global define*/
 define( [ "yasmf" ], function( _y ) {
   /**
    * Model supporting a basic note. Extend for enhanced functionality
@@ -57,7 +52,8 @@ define( [ "yasmf" ], function( _y ) {
     self.registerNotification( "mediaContentsChanged" );
     self.registerNotification( "unitValueChanged" );
     self.registerNotification( "unitLabelsChanged" );
-	/* Added Status notification */
+	
+	/*     Added Status notification ************************************** */
 	self.registerNotification( "statusChanged" );
     /**
      * The note's unique identifier. getUID is the getter, and
@@ -125,9 +121,19 @@ define( [ "yasmf" ], function( _y ) {
       set: self.setName,
       configurable: true
     } );
+		
+	//   *******************************************************************   	:-{)			  
+	//  "New-Status"  Label  BELOW  NEW CODE for Display, 						:-{)
+	//	including “&nbsp;” space placeholders   								:-{)
+	//   New code Change:   													:-{)
+	//			self._status = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "New Status"; :-{)	 
+	//  Added 5x spaces ( &nbsp; )  for separation   between					:-{)
+	//	   	modification date and status notification		 					:-{)
+
+	/* Added status get/set functions 											:-{)	*/									
+	self._status = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "New Status";  	//	 	:-{)	   	  	
+	//	 																		:-{)
 	
-	/* Added status get/set functions */
-	self._status = "New";
     self.getStatus = function() {
       return self._status;
     };
@@ -140,6 +146,9 @@ define( [ "yasmf" ], function( _y ) {
       set: self.setStatus,
       configurable: true
     } );
+	
+		//   *******************************************************************   	:-{)		
+	
     /**
      * Instead of the line count, we'll use a generic "unit". For the BaseNote, this
      * is still a line count, but other note types may use it differently.

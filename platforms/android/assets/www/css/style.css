@@ -21,7 +21,17 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/* General styles */
+/*     *************    General styles    **************    */
+
+
+    /*	****************************   	PROJECT 4   	************************************     :-{)	*/	  
+	/*  ( Lines  410 - 420 )  -   Added  CSS changes:   #NEW_STATUS					   			 :-{)	*/
+	/*  CHANGE COLOR/FONT:  Hexi decimal color = Purple;  & font-weight: Font-weight = Bold  	 :-{) 	*/
+	/*  After CHANGE from DEFAULT DATE FORMATE: D (LONG)  date format to   d (SHORT) format,  	 :-{) 	*/
+	/*						CENTERED Status text  W/      text-align: center; 			    	 :-{)	
+		EDIT 03/11/2015 - Caleb, Chris, David, Eileen    
+		   Changed the status' CSS. The change is in the last part of the code at 
+		   the bottom of this document. 														*/
 
 /* background color */
 
@@ -351,7 +361,6 @@ body.android {
 /*
  * IMAGE NOTE EDIT VIEW styles
  */
-
 /* style the container for the image */
 
 .ImageNoteEditView .image-container {
@@ -386,7 +395,6 @@ body.android {
    we duplicate the icon with a different color so we can outline it.
    The +1px enables the outline. That said, on Android < 4.4, the
    outline isn't visible, due to the use of calc(). */
-
 .ImageNoteEditView .image-container div.outline {
   position: absolute;
   top: 0;
@@ -398,4 +406,21 @@ body.android {
   -ms-mask-position-y: calc(100% + 1px);
   mask-position-y: calc(100% + 1px);
   background-color: black;
-}
+  }
+   /********************************************************************************   :-{)		*/	  
+	
+	/*  with newly defined class in:   noteListItem.htm  =  .ui-label-status;          :-{)		*/
+	/*  change color & font-weight: Hexi decimal color = Purple; Font-weight = Bold    :-{) 	*/
+	/*  After change from default D date format to d format,  
+	/*						Centered Status text w/ text-align: center; 				:-{)	 */
+	
+	#NEW_STATUS{
+	color:  #8B008B;
+	font-weight:  Bold;
+	text-align: center;
+	
+
+
+	
+	
+	
