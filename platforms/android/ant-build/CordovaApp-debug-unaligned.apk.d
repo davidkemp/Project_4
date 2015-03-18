@@ -1,4 +1,4 @@
-C:\Sandbox\webd265\Project_4\platforms\android\ant-build\CordovaApp-debug-unaligned.apk : \
-C:\Sandbox\webd265\Project_4\platforms\android\ant-build\CordovaApp.ap_ \
-C:\Sandbox\webd265\Project_4\platforms\android\ant-build\classes.dex \
+c:\Sandbox\webd265\Project_4\platforms\android\ant-build\CordovaApp-debug-unaligned.apk : \
+c:\Sandbox\webd265\Project_4\platforms\android\ant-build\CordovaApp.ap_ \
+c:\Sandbox\webd265\Project_4\platforms\android\ant-build\classes.dex \
 C:\Sandbox\webd265\Project_4\platforms\android\CordovaLib\ant-build\classes.jar \

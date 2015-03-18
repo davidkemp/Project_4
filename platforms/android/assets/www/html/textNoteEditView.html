@@ -30,19 +30,29 @@
     <div class="ui-bar-button-group ui-align-right">
 	
 	
-	
+
 	
  <!--   ********************************************************************************      	  
-	   EDIT 03/11/2015 - Caleb, Chris, David, Eileen    
-				Added drop-down select menu.								:-{)  -->	
-
+		EDIT 03/11/2015 	- 	TEAM:  Caleb, Chris, David, Eileen    
+						Added drop-down select menu.								
+		EDIT 03/16/2015 	-	Added value image tags. ( Line 50-1 )      	:-{)  -->
+		
 		<select class="ui-new-status">
 		
 			<option value="New">New</option>
-			<option value="Archive">Archive</option>
-			<option value="Follow Up">Follow Up</option>
-			
-		</select>			 <!--   **********************************		:-{)  -->	
+			<!-- Converted status tags for archive and followup to image icons -->
+				<!-- "value" parameter in the <option> tag is what was setting the text on the notes. 
+				Therefore, if value="New" on the note the status would be "New". Then put and image tag 
+				in the "value" parameter. Will not work because use of literal quotes. However, when use
+				of code for "quotes", => &quot;, Works in emulator because now the value just gets set 
+				to the image path.   Credit for this solution goes to Caleb Mills. 
+			--> 			
+			<option value="<img src=&quot;./img/archive1.png&quot; style=&quot;width:30px;margin-left:10%;&quot; />">Archive</option> 
+			<option value="<img src=&quot;./img/followup1.png&quot; style=&quot;width:30px;margin-left:10%;&quot; />">Follow Up</option> 
+        
+		<select class="ui-new-status"> 
+		</select>		
+<!--   **********************************		:-{)  -->	
 		
 		
       <div class="ui-bar-button ui-destructive-color">%DELETE_NOTE%</div>
